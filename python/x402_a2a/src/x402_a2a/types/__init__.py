@@ -60,6 +60,22 @@ from ..extension import (
     add_extension_activation_header,
 )
 
+# Tron-specific types — Erudite Intelligence LLC
+from .tron import (
+    TronPaymentPayload,
+    TronTransferAuthorization,
+    TRON_NETWORKS,
+    TRON_NETWORK_CHAIN_IDS,
+    TRON_DEFAULT_USDT,
+    TRON_USDT_MAINNET,
+    TRON_USDT_NILE,
+    TRON_USDT_SHASTA,
+    TRON_USDC_MAINNET,
+    TRON_MAINNET_CHAIN_ID,
+    TRON_NILE_CHAIN_ID,
+    TRON_SHASTA_CHAIN_ID,
+)
+
 __all__ = [
     "Task",
     "Message",
@@ -100,4 +116,17 @@ __all__ = [
     "get_extension_declaration",
     "check_extension_activation",
     "add_extension_activation_header",
+    # Tron types — Erudite Intelligence LLC
+    "TronPaymentPayload",
+    "TronTransferAuthorization",
+    "TRON_NETWORKS",
+    "TRON_NETWORK_CHAIN_IDS",
+    "TRON_DEFAULT_USDT",
+    "TRON_USDT_MAINNET",
+    "TRON_USDT_NILE",
+    "TRON_USDT_SHASTA",
+    "TRON_USDC_MAINNET",
+    "TRON_MAINNET_CHAIN_ID",
+    "TRON_NILE_CHAIN_ID",
+    "TRON_SHASTA_CHAIN_ID",
 ]

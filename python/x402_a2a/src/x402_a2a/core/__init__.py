@@ -26,6 +26,12 @@ from .helpers import (
     check_payment_context,
 )
 from .agent import create_x402_agent_card
+from .tron import (
+    TronFacilitator,
+    create_tron_payment_requirements,
+    process_tron_payment,
+    is_tron_network,
+)
 
 __all__ = [
     # Core merchant/wallet functions
@@ -48,4 +54,9 @@ __all__ = [
     "check_payment_context",
     # Agent utilities
     "create_x402_agent_card",
+    # Tron network support — Erudite Intelligence LLC
+    "TronFacilitator",
+    "create_tron_payment_requirements",
+    "process_tron_payment",
+    "is_tron_network",
 ]

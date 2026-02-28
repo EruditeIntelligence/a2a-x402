@@ -74,6 +74,20 @@ from .core import (
     check_payment_context,
     # Agent utilities
     create_x402_agent_card,
+    # Tron network support — Erudite Intelligence LLC
+    TronFacilitator,
+    create_tron_payment_requirements,
+    process_tron_payment,
+    is_tron_network,
+)
+
+# Tron types
+from .types.tron import (
+    TronPaymentPayload,
+    TronTransferAuthorization,
+    TRON_NETWORKS,
+    TRON_DEFAULT_USDT,
+    TRON_NETWORK_CHAIN_IDS,
 )
 
 # Optional Middleware
@@ -111,4 +125,14 @@ __all__ = [
     "map_error_to_code",
     "x402BaseExecutor",
     "x402ServerExecutor",
+    # Tron network support — Erudite Intelligence LLC
+    "TronFacilitator",
+    "create_tron_payment_requirements",
+    "process_tron_payment",
+    "is_tron_network",
+    "TronPaymentPayload",
+    "TronTransferAuthorization",
+    "TRON_NETWORKS",
+    "TRON_DEFAULT_USDT",
+    "TRON_NETWORK_CHAIN_IDS",
 ]

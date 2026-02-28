@@ -374,8 +374,13 @@ class x402ServerExecutor(x402BaseExecutor, metaclass=ABCMeta):
         self, task, error_code: str, error_reason: str, event_queue: EventQueue
     ):
         """Handle payment failure."""
+        # Use actual network from stored requirements if available, else "unknown"
+        network = "unknown"
+        accepts = self._payment_requirements_store.get(task.id)
+        if accepts:
+            network = accepts[0].network
         failure_response = SettleResponse(
-            success=False, network="base", error_reason=error_reason
+            success=False, network=network, error_reason=error_reason
         )
         task = self.utils.record_payment_failure(task, error_code, failure_response)
 

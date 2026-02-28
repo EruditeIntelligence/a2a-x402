@@ -31,12 +31,14 @@ def require_payment(
     """Create a payment required exception for immediate raising.
 
     Convenience function for the most common use case.
+    Supports both EVM (0x addresses) and Tron (T-prefix addresses) networks.
 
     Args:
-        price: Payment amount (e.g., "$1.00", 1.00, TokenAmount)
-        pay_to_address: Ethereum address to receive payment
+        price: Payment amount (e.g., "$1.00", 1.00, "1000000" for Tron atomic, TokenAmount)
+        pay_to_address: Address to receive payment (EVM 0x or Tron T-prefix)
         resource: Resource identifier (auto-generated if None)
-        network: Blockchain network (default: "base")
+        network: Blockchain network (default: "base"). Tron networks:
+                 "tron", "tron-mainnet", "tron-nile", "tron-testnet", "tron-shasta"
         description: Human-readable description
         message: Exception message (default: uses description)
 
@@ -44,14 +46,20 @@ def require_payment(
         x402PaymentRequiredException ready to be raised
 
     Example:
-        # In your agent logic:
-        if not user.is_premium:
-            raise require_payment(
-                price="$5.00",
-                pay_to_address="0x123...",
-                resource="/premium-feature",
-                description="Premium feature access"
-            )
+        # EVM payment:
+        raise require_payment(
+            price="$5.00",
+            pay_to_address="0x123...",
+            resource="/premium-feature",
+        )
+
+        # Tron payment:
+        raise require_payment(
+            price="$5.00",
+            pay_to_address="TXYZopYRdj2D9XRtbG411XZZ3kM5VkAeBf",
+            resource="/premium-feature",
+            network="tron-nile",
+        )
     """
     return x402PaymentRequiredException.for_service(
         price=price,

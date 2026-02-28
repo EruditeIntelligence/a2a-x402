@@ -9,13 +9,18 @@ authors = [
     { name = "Google A2A", email = "a2a@google.com" }
 ]
 requires-python = ">=3.10"
-keywords = ["a2a", "x402", "payments", "ethereum", "coinbase", "google"]
+keywords = ["a2a", "x402", "payments", "ethereum", "tron", "coinbase", "google"]
 dependencies = [
     "a2a-sdk>=0.1.0",  # For A2A protocol integration
     "x402>=0.2.0",  # For x402 payment protocol
     "eth-account>=0.13.7",  # For Ethereum account management
     "httpx>=0.28.1",  # For async HTTP client
     "pydantic>=2.0.0",  # For data validation
+]
+
+[project.optional-dependencies]
+tron = [
+    "tronweb>=1.0.0",  # For Tron blockchain interaction (Erudite Intelligence LLC)
 ]
 
 [dependency-groups]
